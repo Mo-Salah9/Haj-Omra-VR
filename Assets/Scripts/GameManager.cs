@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public Image image1, image2, image3;
     public GameObject Videobject;
-    public VideoPlayer clip;  
+    public VideoPlayer clip;
     //public void step1()
     //{
     //    player.transform.position = new Vector3(0.365471601f, 0.295673728f, -0.584015489f);
@@ -21,9 +21,9 @@ public class GameManager : MonoBehaviour
     }
 
     //}
-    public void step2() 
-    { 
-    
+    public void step2()
+    {
+
     }
 
 
@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
         AudioManager.Instance.PlayAlone("1");
         image1.GetComponent<CanvasGroup>().DOFade(1, 2);
         yield return new WaitForSeconds(22);
-        image1.GetComponent<CanvasGroup>().alpha=0; 
+        image1.GetComponent<CanvasGroup>().alpha = 0;
         AudioManager.Instance.PlayAlone("2");
         image2.GetComponent<CanvasGroup>().DOFade(1, 2);
         yield return new WaitForSeconds(32);
@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
         image3.GetComponent<CanvasGroup>().DOFade(1, 2);
         AudioManager.Instance.PlayAlone("3");
         yield return new WaitForSeconds(31);
-        image3.GetComponent <CanvasGroup>().alpha = 0;
+        image3.GetComponent<CanvasGroup>().alpha = 0;
         Videobject.SetActive(true);
         clip.Play();
     }
