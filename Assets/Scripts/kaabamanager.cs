@@ -3,13 +3,22 @@ using DG.Tweening;
 using System.Collections;
 using UnityEngine.UI;
 
+[System.Serializable]
+public class PathPointData
+{
+    public Transform point;
+    public Vector3 rotation;
+    public CanvasGroup ui;
+    public AudioClip audioClip;
+    public float stopDuration;
+}
+
 public class kaabamanager : MonoBehaviour
 {
     public GameObject player;
     public Image image1, image2, image3;
-
-    public Transform[] pathPoints;
-    public float moveDuration = 20f;
+    public PathPointData[] pathPoints;
+    public float moveSpeed = 2f; // units per second — rename in Inspector too
 
     void Start()
     {
@@ -20,26 +29,15 @@ public class kaabamanager : MonoBehaviour
     public IEnumerator enumerator()
     {
         AudioManager.Instance.PlayAlone("k1");
-
         yield return new WaitForSeconds(10f);
-
         image1.GetComponent<CanvasGroup>().DOFade(1, 2);
-
         yield return new WaitForSeconds(10f);
-
         player.transform.DORotate(new Vector3(0, 175, 0), 1f);
-
         image1.GetComponent<CanvasGroup>().DOFade(0, 2);
-
         AudioManager.Instance.PlayAlone("k2");
-
         image2.GetComponent<CanvasGroup>().DOFade(1, 2);
-
         yield return new WaitForSeconds(13f);
-
         image2.GetComponent<CanvasGroup>().DOFade(0, 2);
-
-        // HERE 👇 Move player using LOCAL path safely
         yield return MovePlayerAlongLocalPath();
     }
 
@@ -48,23 +46,47 @@ public class kaabamanager : MonoBehaviour
         if (pathPoints == null || pathPoints.Length == 0)
             yield break;
 
-        Vector3[] path = new Vector3[pathPoints.Length];
+        float playerLocalY = player.transform.localPosition.y;
 
         for (int i = 0; i < pathPoints.Length; i++)
         {
-            // convert world positions into player's local space
-            path[i] = player.transform.parent.InverseTransformPoint(pathPoints[i].position);
+            PathPointData data = pathPoints[i];
+            if (data.point == null) continue;
+
+            // — Compute target local position —
+            Vector3 localPoint = player.transform.parent != null
+                ? player.transform.parent.InverseTransformPoint(data.point.position)
+                : data.point.position;
+            localPoint.y = playerLocalY;
+
+            // — Duration based on distance and constant speed —
+            float distance = Vector3.Distance(player.transform.localPosition, localPoint);
+            float segmentDuration = distance / moveSpeed;
+
+            Tween moveTween = player.transform
+                .DOLocalMove(localPoint, segmentDuration)
+                .SetEase(Ease.Linear);
+
+            yield return moveTween.WaitForCompletion();
+
+            // — Rotation —
+            player.transform.DORotate(data.rotation, 0.5f);
+
+            // — Audio —
+            if (data.audioClip != null)
+                AudioManager.Instance.PlayAlone(data.audioClip.name);
+
+            // — UI Fade In —
+            if (data.ui != null)
+                data.ui.DOFade(1, 0.5f);
+
+            // — Stop Duration —
+            if (data.stopDuration > 0f)
+                yield return new WaitForSeconds(data.stopDuration);
+
+            // — UI Fade Out —
+            if (data.ui != null)
+                data.ui.DOFade(0, 0.5f);
         }
-
-        Tween moveTween = player.transform.DOLocalPath(
-            path,
-            moveDuration,
-            PathType.Linear
-        )
-        .SetEase(Ease.Linear);
-        // 🔥 FIX: prevents upside-down flipping
-        //.SetLookAt(0.01f, Vector3.up);
-
-        yield return moveTween.WaitForCompletion();
     }
 }
