@@ -2,6 +2,7 @@
 using DG.Tweening;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;  // ✅ add this
 
 [System.Serializable]
 public class PathPointData
@@ -18,7 +19,7 @@ public class kaabamanager : MonoBehaviour
     public GameObject player;
     public Image image1, image2, image3;
     public PathPointData[] pathPoints;
-    public float moveSpeed = 2f; // units per second — rename in Inspector too
+    public float moveSpeed = 2f;
 
     void Start()
     {
@@ -38,7 +39,12 @@ public class kaabamanager : MonoBehaviour
         image2.GetComponent<CanvasGroup>().DOFade(1, 2);
         yield return new WaitForSeconds(13f);
         image2.GetComponent<CanvasGroup>().DOFade(0, 2);
+
         yield return MovePlayerAlongLocalPath();
+
+        // ✅ After path is fully complete, wait 20 seconds then load Scene 1
+        yield return new WaitForSeconds(20f);
+        SceneManager.LoadScene(2);
     }
 
     private IEnumerator MovePlayerAlongLocalPath()
@@ -88,5 +94,7 @@ public class kaabamanager : MonoBehaviour
             if (data.ui != null)
                 data.ui.DOFade(0, 0.5f);
         }
+
+        // MovePlayerAlongLocalPath is done here — control returns to enumerator()
     }
 }

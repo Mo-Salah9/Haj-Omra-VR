@@ -765,6 +765,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   player: {fileID: 4621094082668738816}
+  image1: {fileID: 0}
+  image2: {fileID: 0}
+  image3: {fileID: 0}
+  Videobject: {fileID: 0}
+  clip: {fileID: 0}
 --- !u!114 &8507798352990831695
 MonoBehaviour:
   m_ObjectHideFlags: 0

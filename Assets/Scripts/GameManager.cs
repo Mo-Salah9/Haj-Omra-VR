@@ -1,7 +1,8 @@
-using UnityEngine;
-using UnityEngine.UI;
-using System.Collections;
 using DG.Tweening;
+using System.Collections;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using UnityEngine.Video;
 
 public class GameManager : MonoBehaviour
@@ -42,9 +43,10 @@ public class GameManager : MonoBehaviour
         image2.GetComponent<CanvasGroup>().alpha = 0;
         image3.GetComponent<CanvasGroup>().DOFade(1, 2);
         AudioManager.Instance.PlayAlone("3");
-        yield return new WaitForSeconds(31);
+        yield return new WaitForSeconds(26);
         image3.GetComponent<CanvasGroup>().alpha = 0;
-        Videobject.SetActive(true);
-        clip.Play();
+        //Videobject.SetActive(true);
+        //clip.Play();
+        SceneManager.LoadScene(1);
     }
 }
