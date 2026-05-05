@@ -1,12 +1,16 @@
-using DG.Tweening;
+﻿using DG.Tweening;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Video;
+using UnityEngine.XR;
+
 
 public class GameManager : MonoBehaviour
 {
+    private List<InputDevice> devices = new List<InputDevice>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public GameObject player;
     public Image image1, image2, image3;
@@ -27,7 +31,29 @@ public class GameManager : MonoBehaviour
 
     }
 
+    void Update()
+    {
+        // 🔁 Re-fetch if lost / not initialized
+        if (devices == null || devices.Count == 0)
+        {
+            InputDevices.GetDevicesAtXRNode(XRNode.RightHand, devices);
+        }
 
+        if (devices.Count > 0)
+        {
+            bool aButtonPressed;
+
+            if (devices[0].TryGetFeatureValue(CommonUsages.primaryButton, out aButtonPressed) && aButtonPressed)
+            {
+                Debug.Log("A button pressed");
+                LoadScene();
+            }
+        }
+    }
+    void LoadScene()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
     public IEnumerator step1()
     {
         player.transform.position = new Vector3(0.365471601f, 0.295673728f, -0.584015489f);

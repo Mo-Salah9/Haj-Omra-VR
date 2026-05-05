@@ -3,6 +3,8 @@ using DG.Tweening;
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;  // ✅ add this
+using UnityEngine.XR;
+using System.Collections.Generic;
 
 [System.Serializable]
 public class PathPointData
@@ -16,6 +18,8 @@ public class PathPointData
 
 public class kaabamanager : MonoBehaviour
 {
+    private List<InputDevice> devices = new List<InputDevice>();
+
     public GameObject player;
     public Image image1, image2, image3;
     public PathPointData[] pathPoints;
@@ -57,6 +61,29 @@ public class kaabamanager : MonoBehaviour
         yield return new WaitForSeconds(28f);
         StartCoroutine(enumerator());
 
+    }
+    void Update()
+    {
+        // 🔁 Re-fetch if lost / not initialized
+        if (devices == null || devices.Count == 0)
+        {
+            InputDevices.GetDevicesAtXRNode(XRNode.RightHand, devices);
+        }
+
+        if (devices.Count > 0)
+        {
+            bool aButtonPressed;
+
+            if (devices[0].TryGetFeatureValue(CommonUsages.primaryButton, out aButtonPressed) && aButtonPressed)
+            {
+                Debug.Log("A button pressed");
+                LoadScene();
+            }
+        }
+    }
+    void LoadScene()
+    {
+        SceneManager.LoadScene("SampleScene");
     }
     private IEnumerator MovePlayerAlongLocalPath()
     {
