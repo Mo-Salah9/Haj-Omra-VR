@@ -74,3 +74,4 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 /[Pp]ackages/packages-lock.json
+/Assets/All_Files/Fbx.FBX
