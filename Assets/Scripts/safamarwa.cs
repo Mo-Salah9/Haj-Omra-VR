@@ -21,9 +21,32 @@ public class safamarwa : MonoBehaviour
 
     void Start()
     {
-        player.transform.rotation = new Quaternion(0f, 0.793353379f, 0, 0.60876143f);
-        StartCoroutine(MovePlayerAlongLocalPath());
+        //player.transform.rotation = new Quaternion(0f, 0.793353379f, 0, 0.60876143f);
+        //StartCoroutine(MovePlayerAlongLocalPath());
+        player.transform.position = new Vector3(-11.1199999f, -5.4000001f, 99.4599991f);
+        StartCoroutine(safamarwai());
     }
+
+    public IEnumerator safamarwai()
+    {
+        player.transform.DOMove(new Vector3(-11.1199999f, -5.4000001f, 116f), 2);
+
+
+        AudioManager.Instance.PlayAlone("safa1");
+        yield return new WaitForSeconds(8.5f);
+        AudioManager.Instance.PlayAlone("safa2");
+        yield return new WaitForSeconds(31);
+        player.transform.DORotateQuaternion(new Quaternion(0, -0.592927158f, 0, 0.805256128f), 1f);
+        yield return new WaitForSeconds(1f);
+        AudioManager.Instance.PlayAlone("safa3");
+;        player.transform.DOMove (new Vector3(-41.0999985f, -5.4000001f, 116f),2f);
+        yield return new WaitForSeconds(2f);
+        player.transform.DORotateQuaternion(new Quaternion(0, 1, 0, 0), 1f);
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(MovePlayerAlongLocalPath());
+        yield return null;
+    }
+
 
     public IEnumerator enumerator()
     {
