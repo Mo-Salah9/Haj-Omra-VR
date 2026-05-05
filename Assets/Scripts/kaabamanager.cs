@@ -44,7 +44,9 @@ public class kaabamanager : MonoBehaviour
         yield return MovePlayerAlongLocalPath();
 
         // ✅ After path is fully complete, wait 20 seconds then load Scene 1
-        yield return new WaitForSeconds(20f);
+        yield return new WaitForSeconds(23f);
+        AudioManager.Instance.PlayAlone("gf");
+        yield return new WaitForSeconds(18f);
         SceneManager.LoadScene(2);
     }
     private IEnumerator Entermasjed()
