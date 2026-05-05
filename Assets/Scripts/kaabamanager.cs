@@ -23,16 +23,17 @@ public class kaabamanager : MonoBehaviour
 
     void Start()
     {
-        player.transform.rotation = new Quaternion(0f, 0.793353379f, 0, 0.60876143f);
-        StartCoroutine(enumerator());
+        player.transform.position = new Vector3(-81.8000031F, -15.49438f, 201.100006F);
+        player.transform.rotation = new Quaternion(0, 0.673657656F, 0, 0.739043534F);
+        StartCoroutine(Entermasjed());
     }
 
     public IEnumerator enumerator()
     {
-        AudioManager.Instance.PlayAlone("k1");
-        yield return new WaitForSeconds(10f);
-        image1.GetComponent<CanvasGroup>().DOFade(1, 2);
-        yield return new WaitForSeconds(10f);
+        AudioManager.Instance.PlayAlone("k2");
+        //yield return new WaitForSeconds(10f);
+        //image1.GetComponent<CanvasGroup>().DOFade(1, 2);
+        //yield return new WaitForSeconds(10f);
         player.transform.DORotate(new Vector3(0, 175, 0), 1f);
         image1.GetComponent<CanvasGroup>().DOFade(0, 2);
         AudioManager.Instance.PlayAlone("k2");
@@ -46,7 +47,15 @@ public class kaabamanager : MonoBehaviour
         yield return new WaitForSeconds(20f);
         SceneManager.LoadScene(2);
     }
+    private IEnumerator Entermasjed()
+    {
+        AudioManager.Instance.PlayAlone("e1");
+        yield return new WaitForSeconds(2f);
+         player.transform.DOMove (new Vector3(-27.3999996F, -15.49438f, 210.800003F), 25f,false);
+        yield return new WaitForSeconds(28f);
+        StartCoroutine(enumerator());
 
+    }
     private IEnumerator MovePlayerAlongLocalPath()
     {
         if (pathPoints == null || pathPoints.Length == 0)
