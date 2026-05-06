@@ -60,10 +60,12 @@ public class safamarwa : MonoBehaviour
         yield return StartCoroutine(MovePlayerAlongLocalPath());
 
         // ✅ THEN play video
+        yield return new WaitForSeconds(10f);
+
         vo.SetActive(true);
         vp.Play();
 
-        yield return new WaitForSeconds(7f);
+        yield return new WaitForSeconds(10f);
 
         vo.SetActive(false);
     }
@@ -82,11 +84,9 @@ public class safamarwa : MonoBehaviour
         yield return new WaitForSeconds(13f);
         image2.GetComponent<CanvasGroup>().DOFade(0, 2);
         yield return MovePlayerAlongLocalPath();
-        yield return new WaitForSeconds(18);
-        vo.SetActive(true);
-        vp.Play();
-        yield return new WaitForSeconds(10);
-        vo.SetActive(false);
+       
+        //yield return new WaitForSeconds(10);
+        //vo.SetActive(false);
 
     }
     void Update()
