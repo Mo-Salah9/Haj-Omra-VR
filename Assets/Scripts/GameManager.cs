@@ -16,12 +16,14 @@ public class GameManager : MonoBehaviour
     public Image image1, image2, image3, imagem;
     public GameObject Videobject;
     public VideoPlayer clip;
+    public AudioSource audioSource; 
     //public void step1()
     //{
     //    player.transform.position = new Vector3(0.365471601f, 0.295673728f, -0.584015489f);
     //    player.transform.rotation = new Quaternion(0, 0.707106829f, 0, 0.707106829f);
     private void Start()
     {
+       
         StartCoroutine(step1());
     }
 
@@ -74,10 +76,15 @@ public class GameManager : MonoBehaviour
 
         image2.GetComponent<CanvasGroup>().DOFade(1, 2);
         //AudioManager.Instance.PlayAlone("3");
-        yield return new WaitForSeconds(17);
+        yield return new WaitForSeconds(10);
+        audioSource.volume = 0.5f;
+        yield return new WaitForSeconds(4);
+
         //image3.GetComponent<CanvasGroup>().alpha = 0;
         //Videobject.SetActive(true);
         //clip.Play();
+        audioSource.volume = 1;
+        yield return new WaitForSeconds(5);
         SceneManager.LoadScene(1);
     }
 }
