@@ -57,7 +57,7 @@ public class kaabamanager : MonoBehaviour
     {
         AudioManager.Instance.PlayAlone("e1");
         yield return new WaitForSeconds(2f);
-         player.transform.DOMove (new Vector3(-27.3999996F, -15.49438f, 210.800003F), 25f,false);
+         player.transform.DOMove (new Vector3(-25.3999996f, -15.49438f, 215.800003f), 25f,false);
         yield return new WaitForSeconds(28f);
         StartCoroutine(enumerator());
 
