@@ -6,6 +6,7 @@ using UnityEngine.XR;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using UnityEngine.Video;
+using UnityEditor.Experimental.GraphView;
 
 [System.Serializable]
 public class PathPointData2
@@ -23,6 +24,7 @@ public class safamarwa : MonoBehaviour
     public GameObject player;
     public Image image1, image2, image3;
     public PathPointData2[] pathPoints;
+    public GameObject charc , close;
     public float moveSpeed = 2f; // units per second — rename in Inspector too
     private List<InputDevice> devices = new List<InputDevice>();
     void Start()
@@ -40,10 +42,10 @@ public class safamarwa : MonoBehaviour
         player.transform.DOMove(new Vector3(-11.1199999f, -5.4000001f, 116f), 2);
 
         AudioManager.Instance.PlayAlone("safa1");
-        yield return new WaitForSeconds(8.5f);
+        yield return new WaitForSeconds(8f);
 
-        AudioManager.Instance.PlayAlone("safa2");
-        yield return new WaitForSeconds(31);
+        AudioManager.Instance.PlayAlone("a");
+        yield return new WaitForSeconds(18);
 
         player.transform.DORotateQuaternion(new Quaternion(0, -0.592927158f, 0, 0.805256128f), 1f);
         yield return new WaitForSeconds(1f);
@@ -60,14 +62,20 @@ public class safamarwa : MonoBehaviour
         yield return StartCoroutine(MovePlayerAlongLocalPath());
 
         // ✅ THEN play video
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(3f);
+        AudioManager.Instance.PlayAlone("Closure");
+        yield return new WaitForSeconds(20f);
 
         vo.SetActive(true);
         vp.Play();
+        yield return new WaitForSeconds(7f);
+        close.SetActive(true);
+        charc.SetActive(false);
 
-        yield return new WaitForSeconds(10f);
 
-        vo.SetActive(false);
+
+
+
     }
 
 
