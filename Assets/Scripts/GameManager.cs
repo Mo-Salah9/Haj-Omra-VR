@@ -23,8 +23,9 @@ public class GameManager : MonoBehaviour
     //    player.transform.rotation = new Quaternion(0, 0.707106829f, 0, 0.707106829f);
     private void Start()
     {
-       
+        imagem.gameObject.SetActive(false);
         StartCoroutine(step1());
+
     }
 
     //}
@@ -67,7 +68,9 @@ public class GameManager : MonoBehaviour
         image1.GetComponent<CanvasGroup>().alpha = 0;
         AudioManager.Instance.PlayAlone("2");
         imagem.GetComponent<CanvasGroup>().DOFade(1, 2);
+        imagem.gameObject.SetActive(true);
         yield return new WaitForSeconds(24);
+
         imagem.GetComponent<CanvasGroup>().alpha = 0;
         AudioManager.Instance.PlayAlone("3");
         image3.GetComponent<CanvasGroup>().DOFade(1, 2);

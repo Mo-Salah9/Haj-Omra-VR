@@ -6,7 +6,6 @@ using UnityEngine.XR;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using UnityEngine.Video;
-using UnityEditor.Experimental.GraphView;
 
 [System.Serializable]
 public class PathPointData2
@@ -65,12 +64,13 @@ public class safamarwa : MonoBehaviour
         yield return new WaitForSeconds(3f);
         AudioManager.Instance.PlayAlone("Closure");
         yield return new WaitForSeconds(20f);
-
+        charc.SetActive(false);
         vo.SetActive(true);
         vp.Play();
         yield return new WaitForSeconds(7f);
+        vo.SetActive(false);
         close.SetActive(true);
-        charc.SetActive(false);
+     
 
 
 
