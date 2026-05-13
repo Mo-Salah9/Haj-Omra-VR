@@ -75,3 +75,5 @@ crashlytics-build.properties
 
 /[Pp]ackages/packages-lock.json
 /Assets/All_Files/Fbx.FBX
+/Assets/*.mp4
+/Assets/Scripts/*.mp4
