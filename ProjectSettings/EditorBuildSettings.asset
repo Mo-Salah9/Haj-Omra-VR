@@ -8,13 +8,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/omra intro.unity
     guid: 55daccc09a3b69647bbab145b54a3ab3
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/haj intro.unity
     guid: c7520b05649796f46a609d0da0bfa692
-  - enabled: 0
+  - enabled: 1
     path: Assets/HARAM.unity
     guid: 034fed9be1f8ce74abbc3b24a8051a0b
-  - enabled: 0
+  - enabled: 1
     path: Assets/safa marwa.unity
     guid: 84a3c6a565086af4898a898d0d2e108b
   - enabled: 1
