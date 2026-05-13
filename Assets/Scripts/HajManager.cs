@@ -56,7 +56,7 @@ public void step2()
     }
     void LoadScene()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene(0);
     }
     public IEnumerator step1()
     {

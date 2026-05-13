@@ -69,10 +69,13 @@ public class safamarwa : MonoBehaviour
         vp.Play();
         yield return new WaitForSeconds(7f);
         vo.SetActive(false);
-        close.SetActive(true);
         yield return new WaitForSeconds(13);
-        AudioManager.Instance.PlayAlone("fmusic");
+        //AudioManager.Instance.PlayAlone("fmusic");
+        AudioManager.Instance.PlayAlone("mena");
+        close.SetActive(true);
 
+        yield return new WaitForSeconds(28);
+        SceneManager.LoadScene("mena");
 
 
 
@@ -119,7 +122,7 @@ public class safamarwa : MonoBehaviour
     }
     void LoadScene()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene(0);
     }
     private IEnumerator MovePlayerAlongLocalPath()
     {

@@ -83,7 +83,7 @@ public class kaabamanager : MonoBehaviour
     }
     void LoadScene()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene(0);
     }
     private IEnumerator MovePlayerAlongLocalPath()
     {
