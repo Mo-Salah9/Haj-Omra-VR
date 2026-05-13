@@ -70,7 +70,8 @@ public class safamarwa : MonoBehaviour
         yield return new WaitForSeconds(7f);
         vo.SetActive(false);
         close.SetActive(true);
-     
+        yield return new WaitForSeconds(13);
+        AudioManager.Instance.PlayAlone("fmusic");
 
 
 

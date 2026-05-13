@@ -2999,17 +2999,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1329598066}
-  m_LocalRotation: {x: 0, y: -0.8480481, z: 0, w: 0.52991927}
-  m_LocalPosition: {x: 0, y: 0, z: 9976}
-  m_LocalScale: {x: 1.9, y: 1.9, z: 1.9}
+  m_LocalRotation: {x: -0, y: -0.8986906, z: -0, w: -0.43858334}
+  m_LocalPosition: {x: 0, y: 0, z: 9976.2}
+  m_LocalScale: {x: 3.0843687, y: 3.0843687, z: 3.0843687}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1350880974}
   m_Father: {fileID: 1615624271}
-  m_LocalEulerAnglesHint: {x: 0, y: -116, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -232.02701, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2730, y: 1654}
+  m_AnchoredPosition: {x: 2729.9, y: 1653.9999}
   m_SizeDelta: {x: 481.2, y: 274}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &1329598068
@@ -3020,7 +3020,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1329598066}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -10876,6 +10876,14 @@ PrefabInstance:
       propertyPath: pathPoints.Array.data[4].ui
       value: 
       objectReference: {fileID: 591228564}
+    - target: {fileID: 129722629868849662, guid: 88ba3f021828cda41ad39e2035307001, type: 3}
+      propertyPath: pathPoints.Array.data[8].ui
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 129722629868849662, guid: 88ba3f021828cda41ad39e2035307001, type: 3}
+      propertyPath: pathPoints.Array.data[9].ui
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 129722629868849662, guid: 88ba3f021828cda41ad39e2035307001, type: 3}
       propertyPath: pathPoints.Array.data[0].point
       value: 
