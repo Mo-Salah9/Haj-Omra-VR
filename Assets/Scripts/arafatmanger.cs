@@ -1,6 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class arafatmanger : MonoBehaviour
 {
@@ -47,7 +48,8 @@ public class arafatmanger : MonoBehaviour
         player.transform.DOMove((p5.transform.position), 2f);
         yield return new WaitForSeconds(2f);
         player.transform.DORotateQuaternion(new Quaternion(0, -0.114937216f, 0, 0.993372798f), 1f);
-
+        yield return new WaitForSeconds(29);
+        SceneManager.LoadScene("mozda");
 
 
 
