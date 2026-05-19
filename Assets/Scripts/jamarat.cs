@@ -41,7 +41,7 @@ public class jamarat : MonoBehaviour
 
     private IEnumerator jamaratt()
     {
-        yield return new WaitForSeconds(52);
+        yield return new WaitForSeconds(58);
         SceneManager.LoadScene("final");
 
 

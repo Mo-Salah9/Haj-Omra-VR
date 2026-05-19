@@ -13,7 +13,7 @@ public class HajManager : MonoBehaviour
     private List<InputDevice> devices = new List<InputDevice>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public GameObject player;
-    public Image image1, image2, image3, imagem,logo;
+    public Image image1, image2, image3, imagem,logo, imaget;
     public GameObject Videobject;
     public VideoPlayer clip;
     public AudioSource audioSource;
@@ -69,10 +69,13 @@ public void step2()
         logo.gameObject.SetActive(false);
         image1.GetComponent<CanvasGroup>().DOFade(1, 2);
         audioSource.gameObject.SetActive(true);
-        AudioManager.Instance.PlayAlone("1");
+        AudioManager.Instance.PlayAlone("h1");
         image1.GetComponent<CanvasGroup>().DOFade(1, 2);
-        yield return new WaitForSeconds(20);
+        yield return new WaitForSeconds(12);
         image1.GetComponent<CanvasGroup>().alpha = 0;
+        imaget.GetComponent<CanvasGroup>().DOFade(1, 2);
+        yield return new WaitForSeconds(35);
+        imaget.GetComponent<CanvasGroup>().alpha = 0;
         AudioManager.Instance.PlayAlone("2");
           image2.GetComponent<CanvasGroup>().DOFade(1, 2);
         yield return new WaitForSeconds(8);

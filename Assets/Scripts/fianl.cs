@@ -8,7 +8,7 @@ public class fianl : MonoBehaviour
 {
     private List<InputDevice> devices = new List<InputDevice>();
 
-
+    public GameObject vp;
     void Update()
     {
         // 🔁 Re-fetch if lost / not initialized
@@ -40,7 +40,11 @@ public class fianl : MonoBehaviour
     private IEnumerator jamaratt()
     {
         AudioManager.Instance.PlayAlone("TALK");
-        yield return new WaitForSeconds(66);
+        yield return new WaitForSeconds(13);
+        vp.SetActive(true);
+        yield return new WaitForSeconds(6);
+        vp.SetActive(false);
+        yield return new WaitForSeconds(47);
         AudioManager.Instance.PlayAlone("MUSIC");
 
 

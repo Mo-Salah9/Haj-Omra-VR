@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class arafatmanger : MonoBehaviour
 {
-    public GameObject player , light , p1 ,p2 ,p3 ,p4, p5;
+    public GameObject player , light , p1 ,p2 ,p3 ,p4, p5, ih;
+     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -33,10 +34,15 @@ public class arafatmanger : MonoBehaviour
         yield return new WaitForSeconds(1f);
         player.transform.DOMove((p2.transform.position), 6f);
         yield return new WaitForSeconds(6f);
+
+        ih.SetActive(true);
+      
+        yield return new WaitForSeconds(4f);
+        ih.SetActive(false);
         player.transform.DORotateQuaternion(new Quaternion(0, -0.815885365f, 0, 0.578213751f), 1f);
         yield return new WaitForSeconds(1f);
         player.transform.DOMove((p3.transform.position), 4f);
-        yield return new WaitForSeconds(4f);
+        
         player.transform.DORotateQuaternion(new Quaternion(0, -0.736097634f, 0, 0.676875412f), 1f);
         yield return new WaitForSeconds(11f);
         //light.transform.DORotateQuaternion(new Quaternion(-0.911074281f, -0.07994394f, -0.344902426f, 0.211175278f), 6f);
