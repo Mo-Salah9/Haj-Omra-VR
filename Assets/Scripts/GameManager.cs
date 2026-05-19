@@ -66,10 +66,10 @@ public class Gamemanger : MonoBehaviour
         image1.GetComponent<CanvasGroup>().DOFade(1, 2);
         yield return new WaitForSeconds(18);
         image1.GetComponent<CanvasGroup>().alpha = 0;
-        AudioManager.Instance.PlayAlone("2");
-        imagem.GetComponent<CanvasGroup>().DOFade(1, 2);
-        imagem.gameObject.SetActive(true);
-        yield return new WaitForSeconds(24);
+        //AudioManager.Instance.PlayAlone("2");
+        //imagem.GetComponent<CanvasGroup>().DOFade(1, 2);
+        //imagem.gameObject.SetActive(true);
+        //yield return new WaitForSeconds(24);
 
         imagem.GetComponent<CanvasGroup>().alpha = 0;
         AudioManager.Instance.PlayAlone("3");
