@@ -611,6 +611,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   player: {fileID: 668077201}
+  light: {fileID: 0}
+  p1: {fileID: 0}
+  p2: {fileID: 0}
+  p3: {fileID: 0}
+  p4: {fileID: 0}
+  p5: {fileID: 0}
+  ih: {fileID: 0}
 --- !u!4 &186057589
 Transform:
   m_ObjectHideFlags: 0
@@ -4587,6 +4594,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6684584011990946180, guid: 88ba3f021828cda41ad39e2035307001, type: 3}
       propertyPath: sounds.Array.data[7].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7133830098114509292, guid: 88ba3f021828cda41ad39e2035307001, type: 3}
+      propertyPath: m_RequestedTrackingOriginMode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7309915208511136562, guid: 88ba3f021828cda41ad39e2035307001, type: 3}

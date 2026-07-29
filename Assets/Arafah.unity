@@ -1868,6 +1868,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: p1
       objectReference: {fileID: 0}
+    - target: {fileID: 7133830098114509292, guid: 88ba3f021828cda41ad39e2035307001, type: 3}
+      propertyPath: m_RequestedTrackingOriginMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7309915208511136562, guid: 88ba3f021828cda41ad39e2035307001, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0

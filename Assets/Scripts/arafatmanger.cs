@@ -1,12 +1,13 @@
-using UnityEngine;
-using DG.Tweening;
+﻿using DG.Tweening;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.XR;
 public class arafatmanger : MonoBehaviour
 {
     public GameObject player , light , p1 ,p2 ,p3 ,p4, p5, ih;
-     
+    private List<InputDevice> devices = new List<InputDevice>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,9 +21,27 @@ public class arafatmanger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
+        // 🔁 Re-fetch if lost / not initialized
+        if (devices == null || devices.Count == 0)
+        {
+            InputDevices.GetDevicesAtXRNode(XRNode.RightHand, devices);
+        }
 
+        if (devices.Count > 0)
+        {
+            bool aButtonPressed;
+
+            if (devices[0].TryGetFeatureValue(CommonUsages.primaryButton, out aButtonPressed) && aButtonPressed)
+            {
+                Debug.Log("A button pressed");
+                LoadScene();
+            }
+        }
+    }
+    void LoadScene()
+    {
+        SceneManager.LoadScene(0);
+    }
     private IEnumerator enumerator()
     {
         yield return new WaitForSeconds(1f);
